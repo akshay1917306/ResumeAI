@@ -1,0 +1,32 @@
+# Secrets - never commit
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# User data (real resumes) and generated files
+uploads/*
+outputs/*
+generated_resumes/*
+!uploads/.gitkeep
+!outputs/.gitkeep
+!generated_resumes/.gitkeep
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Accidental duplicate project folder
+/ResumeAI/

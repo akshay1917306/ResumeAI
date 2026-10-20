@@ -1,0 +1,803 @@
+:root {
+
+    --background: #f5f7fb;
+    --surface: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --primary: #111827;
+
+}
+body.dark-mode {
+
+    --background: #111827;
+    --surface: #1f2937;
+    --text: #f9fafb;
+    --muted: #9ca3af;
+    --border: #374151;
+    --primary: #f9fafb;
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================
+   WELCOME SCREEN
+========================================= */
+
+.welcome-screen {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: #ffffff;
+}
+
+
+.welcome-content {
+    animation: fadeIn 1s ease;
+}
+
+
+.resume-logo {
+    width: 130px;
+    height: 130px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #111827;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+.resume-logo:hover {
+    transform: translateY(-8px) scale(1.04);
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.2);
+}
+
+
+.resume-logo span {
+    font-size: 64px;
+    font-weight: 700;
+    color: white;
+}
+
+
+.brand-title {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+
+.brand-subtitle {
+    color: #6b7280;
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.start-button,
+.analyze-button,
+.action-button {
+    border: none;
+
+    padding: 13px 28px;
+
+    border-radius: 12px;
+
+    background: #111827;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    margin-top: 25px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.start-button:hover,
+.analyze-button:hover,
+.action-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================
+   MAIN APP
+========================================= */
+
+.main-app {
+    min-height: 100vh;
+
+    animation: slideUp 0.6s ease;
+}
+
+
+.navbar {
+
+    background: var(--surface);
+
+    border-bottom:
+        1px solid var(--border);
+
+    transition:
+        background 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+
+.theme-button {
+    border: none;
+    background: transparent;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.feature-card {
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.feature-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+
+.results-section {
+
+    margin-top: 50px;
+
+    padding: 30px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    border-radius: 20px;
+
+    border: 1px solid var(--border);
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes slideUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+.exit-animation {
+    animation: exitScreen 0.5s ease forwards;
+}
+
+
+.enter-animation {
+    animation: enterScreen 0.7s ease forwards;
+}
+
+
+@keyframes exitScreen {
+
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+}
+
+
+@keyframes enterScreen {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+/* =========================================
+   RESUMEAI DASHBOARD
+========================================= */
+
+.brand-mark {
+    display: inline-flex;
+
+    width: 34px;
+    height: 34px;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 8px;
+
+    border-radius: 10px;
+
+    background: #111827;
+    color: white;
+
+    font-weight: 700;
+}
+
+
+.dashboard-hero {
+    padding: 80px 20px 45px;
+}
+
+
+.ai-badge {
+    display: inline-block;
+
+    padding: 8px 14px;
+
+    border-radius: 50px;
+
+    background: rgba(17, 24, 39, 0.08);
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.dashboard-hero h1 {
+    margin-top: 22px;
+
+    font-size: clamp(38px, 6vw, 64px);
+
+    font-weight: 800;
+
+    line-height: 1.05;
+}
+
+
+.dashboard-hero h1 span {
+    display: block;
+}
+
+
+.dashboard-hero p {
+    max-width: 650px;
+
+    margin: 20px auto 0;
+
+    color: var(--muted);
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   WORKSPACE
+========================================= */
+
+.workspace {
+    padding-bottom: 80px;
+}
+
+
+.workspace-card {
+    height: 100%;
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.workspace-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-header-custom {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: var(--background);
+
+    font-size: 22px;
+}
+
+
+.card-header-custom h4 {
+    margin: 0;
+
+    font-weight: 700;
+}
+
+
+.card-header-custom p {
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESUME DROP ZONE
+========================================= */
+
+.resume-drop-zone {
+    min-height: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border: 2px dashed var(--border);
+
+    border-radius: 20px;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.resume-drop-zone:hover {
+    transform: scale(1.01);
+
+    background: var(--background);
+}
+
+
+.upload-icon {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: var(--background);
+
+    font-size: 28px;
+
+    margin-bottom: 18px;
+}
+
+
+.resume-drop-zone h5 {
+    font-weight: 700;
+}
+
+
+.resume-drop-zone p {
+    color: var(--muted);
+
+    margin-bottom: 18px;
+}
+
+
+.browse-button {
+    padding: 10px 20px;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.browse-button:hover {
+    transform: translateY(-2px);
+}
+
+
+.resume-drop-zone small {
+    display: block;
+
+    margin-top: 18px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================
+   JD TEXTAREA
+========================================= */
+
+.jd-textarea {
+    width: 100%;
+
+    min-height: 300px;
+
+    resize: vertical;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    border: 2px solid var(--border);
+
+    background: var(--background);
+
+    color: var(--text);
+
+    outline: none;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.jd-textarea:focus {
+    border-color: var(--text);
+
+    box-shadow:
+        0 0 0 4px rgba(17, 24, 39, 0.08);
+}
+
+
+.jd-footer {
+    margin-top: 12px;
+
+    text-align: right;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   ANALYZE
+========================================= */
+
+.analyze-wrapper {
+    text-align: center;
+
+    padding: 45px 0;
+}
+
+
+.analyze-button {
+    margin-top: 0;
+
+    padding: 15px 32px;
+
+    border-radius: 14px;
+
+    font-size: 16px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+.analyze-wrapper p {
+    margin-top: 12px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   PROCESSING
+========================================= */
+
+.processing-state {
+    text-align: center;
+
+    padding: 50px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+}
+
+
+.ai-loader {
+    width: 48px;
+    height: 48px;
+
+    margin: 0 auto 20px;
+
+    border: 4px solid var(--border);
+
+    border-top-color: var(--text);
+
+    border-radius: 50%;
+
+    animation:
+        spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================
+   RESULTS & SKILL BADGES
+========================================= */
+
+.results-heading {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.results-heading h2 {
+    margin-top: 15px;
+
+    font-weight: 800;
+}
+
+.file-info {
+
+    margin-top: 18px;
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    background: var(--background);
+
+    border: 1px solid var(--border);
+
+    color: var(--text);
+
+    line-height: 1.6;
+
+    animation: fadeIn 0.4s ease;
+
+}
+
+.skill-pill {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 3px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+
+    background: var(--background);
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.skill-pill.matched {
+    background: #d1fae5;
+    color: #065f46;
+    border-color: #a7f3d0;
+}
+
+.skill-pill.missing {
+    background: #fee2e2;
+    color: #991b1b;
+    border-color: #fca5a5;
+}
+
+.score-badge {
+    font-size: 28px;
+    font-weight: 800;
+    color: #10b981;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.download-btn-pdf {
+    background: #ef4444;
+    color: white;
+}
+
+.download-btn-pdf:hover {
+    background: #dc2626;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+}
+
+.download-btn-docx {
+    background: #2563eb;
+    color: white;
+}
+
+.download-btn-docx:hover {
+    background: #1d4ed8;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}

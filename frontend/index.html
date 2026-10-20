@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ResumeAI — Intelligent Resume Tailoring Assistant</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Custom CSS -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         WELCOME / LOGO SCREEN
+    ========================================== -->
+
+    <section
+        id="welcomeScreen"
+        class="welcome-screen"
+    >
+
+        <div class="welcome-content">
+
+            <!-- ResumeAI Logo -->
+
+            <div
+                id="resumeLogo"
+                class="resume-logo"
+                title="Enter ResumeAI"
+            >
+
+                <span>R</span>
+
+            </div>
+
+
+            <!-- Brand -->
+
+            <h1 class="brand-title">
+                ResumeAI
+            </h1>
+
+
+            <p class="brand-subtitle">
+                Intelligent Resume Tailoring Assistant
+            </p>
+
+
+            <!-- Start Button -->
+
+            <button
+                id="startButton"
+                class="start-button"
+                type="button"
+            >
+                Start ResumeAI
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         MAIN APPLICATION
+    ========================================== -->
+
+    <main
+        id="mainApp"
+        class="main-app d-none"
+    >
+
+        <!-- =====================================
+             NAVBAR
+        ====================================== -->
+
+        <nav class="navbar">
+
+            <div class="container">
+
+                <div class="navbar-brand">
+
+                    <span class="brand-mark">
+                        R
+                    </span>
+
+                    ResumeAI
+
+                </div>
+
+
+                <!-- Theme Button -->
+
+                <button
+                    id="themeToggle"
+                    class="theme-button"
+                    type="button"
+                    aria-label="Toggle theme"
+                >
+                    ☀️
+                </button>
+
+            </div>
+
+        </nav>
+
+
+
+        <!-- =====================================
+             HERO SECTION
+        ====================================== -->
+
+        <section class="dashboard-hero">
+
+            <div class="container text-center">
+
+                <div class="ai-badge">
+                    ✦ AI-POWERED RESUME INTELLIGENCE
+                </div>
+
+
+                <h1>
+
+                    Build a Resume That
+
+                    <span>
+                        Matches the Job.
+                    </span>
+
+                </h1>
+
+
+                <p>
+                    Upload your resume, add a job description,
+                    and let ResumeAI analyze the opportunity.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             MAIN WORKSPACE
+        ====================================== -->
+
+        <section class="container workspace">
+
+            <div class="row g-4">
+
+
+                <!-- =================================
+                     RESUME UPLOAD
+                ================================== -->
+
+                <div class="col-lg-6">
+
+                    <div class="workspace-card">
+
+                        <div class="card-header-custom">
+
+                            <div class="card-icon">
+                                📄
+                            </div>
+
+
+                            <div>
+
+                                <h4>
+                                    Your Resume
+                                </h4>
+
+                                <p>
+                                    Upload your latest resume
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Resume Drop Zone -->
+
+                        <div
+                            id="resumeDropZone"
+                            class="resume-drop-zone"
+                        >
+
+                            <div class="upload-icon">
+                                ↑
+                            </div>
+
+
+                            <h5>
+                                Drag & Drop your resume
+                            </h5>
+
+
+                            <p>
+                                or click below to browse
+                            </p>
+
+
+                            <label
+                                for="resumeFile"
+                                class="browse-button"
+                            >
+                                Browse Resume
+                            </label>
+
+
+                            <input
+                                type="file"
+                                id="resumeFile"
+                                accept=".pdf,.docx"
+                                hidden
+                            >
+
+
+                            <small>
+                                PDF or DOCX • Maximum 15 MB
+                            </small>
+
+                        </div>
+
+
+
+                        <!-- Selected File Information -->
+
+                        <div
+                            id="resumeFileInfo"
+                            class="file-info d-none"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     JOB DESCRIPTION
+                ================================== -->
+
+                <div class="col-lg-6">
+
+                    <div class="workspace-card">
+
+                        <div class="card-header-custom">
+
+                            <div class="card-icon">
+                                💼
+                            </div>
+
+
+                            <div>
+
+                                <h4>
+                                    Job Description
+                                </h4>
+
+                                <p>
+                                    Tell us about your target role
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- JD Textarea -->
+
+                        <textarea
+                            id="jobDescription"
+                            class="jd-textarea"
+                            placeholder="Paste the complete job description here..."
+                        ></textarea>
+
+
+
+                        <!-- Character Counter -->
+
+                        <div class="jd-footer">
+
+                            <span id="characterCount">
+                                0 characters
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 ANALYZE BUTTON
+            ====================================== -->
+
+            <div class="analyze-wrapper">
+
+                <button
+                    id="analyzeButton"
+                    class="analyze-button"
+                    type="button"
+                >
+
+                    <span>
+                        ✦
+                    </span>
+
+                    Analyze with AI
+
+                </button>
+
+
+                <p>
+                    ResumeAI will compare your resume
+                    against the job requirements.
+                </p>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 AI PROCESSING
+            ====================================== -->
+
+            <div
+                id="processingState"
+                class="processing-state d-none"
+            >
+
+                <div class="ai-loader"></div>
+
+
+                <h4 id="processingTitle">
+                    ResumeAI is analyzing...
+                </h4>
+
+
+                <p id="processingText">
+                    Understanding your resume
+                    and job requirements.
+                </p>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 RESULTS
+            ====================================== -->
+
+            <section
+                id="resultsSection"
+                class="results-section d-none"
+            >
+
+                <div class="results-heading">
+
+                    <span class="ai-badge">
+                        ✦ AI ANALYSIS COMPLETE
+                    </span>
+
+
+                    <h2>
+                        Your Resume Analysis & Match Results
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="resultsContainer"
+                    class="results-container"
+                ></div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+ <script src="js/app.js"></script>
+
+</body>
+
+</html>
